@@ -1,0 +1,15 @@
+[Unit]
+Description=UM25C MQTT bridge
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=30
+TimeoutStopSec=15
+User=api
+ExecStart=/home/user/um25c-mqtt/um25c-mqtt.py --broker localhost --interval 1 --addr XX:XX:XX:XX:XX:XX:XX  
+
+[Install]
+WantedBy=multi-user.target
